@@ -9,7 +9,7 @@ library(dplyr)
 ```
 
 ```{r message = FALSE}
-# load visits and checkouts data
+# load visits and checkouts data from Codecademy
 visits <- read_csv('visits.csv')
 checkouts <- read_csv('checkouts.csv')
 ```
