@@ -93,3 +93,46 @@ v_to_c
 avg_time_to_check <- v_to_c %>% summarize(mean_time = mean(time))
 avg_time_to_check
 
+
+
+
+title: "Aggregates in R"
+output: html_notebook
+---
+
+```{r message = FALSE}
+# load packages
+library(readr)
+library(dplyr)
+```
+
+```{r message = FALSE}
+# load data from Codecademy
+orders <- read_csv("orders.csv")
+page_visits <- read_csv("page_visits.csv")
+```
+
+```{r}
+# inspect data frames
+head(orders)
+head(page_visits)
+```
+
+```{r}
+# define average_price here:
+average_price <- orders %>% summarize(mean_price = mean(price, na.rm=TRUE))
+average_price
+
+```
+
+```{r}
+# define click_source here:
+click_source <- page_visits %>% group_by(utm_source) %>% summarize(count = n())
+click_source
+
+```
+
+```{r}
+# define click_source_by_month here:
+click_source_by_month <- page_visits %>% group_by(utm_source, month) %>% summarize(count = n())
+click_source_by_month
