@@ -1,0 +1,95 @@
+Variance and SD
+title: "Standard Deviation"
+output: html_notebook
+---
+```{r message=FALSE, warning=FALSE}
+# load libraries
+library(dplyr)
+library(tidyr)
+```
+
+```{r}
+# Importing data and calculating variance
+load("lesson_data.Rda")
+variance <- function(x) mean((x-mean(x))^2)
+
+nba_variance <- variance(nba_data)
+okcupid_variance <- variance(okcupid_data)
+```
+
+```{r}
+# Change these variables to be the standard deviation of each dataset.
+nba_standard_deviation <- sd(nba_data)
+okcupid_standard_deviation <- sd(okcupid_data)
+
+#IGNORE CODE BELOW HERE
+print(paste("The standard deviation of the NBA dataset is ",nba_standard_deviation))
+print(paste("The standard deviation of the OkCupid dataset is ", okcupid_standard_deviation))
+
+
+
+
+title: "Modifying Data Frames in R"
+output: html_notebook
+---
+
+```{r message=FALSE, warning=FALSE}
+# load libraries
+library(readr)
+library(dplyr)
+```
+
+```{r message=FALSE}
+# load data frame
+dogs <- read_csv('dogs.csv') #file from codecademy system
+```
+
+```{r}
+# inspect data frame
+head(dogs)
+```
+
+```{r}
+# add new columns, drop existing columns and arrange
+dogs <- dogs %>% transmute(breed = breed, height_average_feet = ((height_low_inches + height_high_inches)/2)/12, popularity_change_15_to_16 = rank_2016 - rank_2015) %>% arrange(desc(popularity_change_15_to_16))
+head(dogs)
+
+
+
+
+
+title: "Joining Tables in R"
+output: html_notebook
+---
+
+```{r message = FALSE}
+# load packages
+library(readr)
+library(dplyr)
+```
+
+```{r message = FALSE}
+# load visits and checkouts data from Codecademy
+visits <- read_csv('visits.csv')
+checkouts <- read_csv('checkouts.csv')
+```
+
+```{r}
+# inspect visits and checkouts here:
+head(visits)
+head(checkouts)
+```
+
+```{r}
+# define v_to_c here:
+v_to_c <- visits %>% inner_join(checkouts)
+v_to_c <- v_to_c %>% mutate(time= checkout_time - visit_time)
+v_to_c
+
+```
+
+```{r}
+# define avg_time_to_check here:
+avg_time_to_check <- v_to_c %>% summarize(mean_time = mean(time))
+avg_time_to_check
+
