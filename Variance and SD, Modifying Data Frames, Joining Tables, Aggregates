@@ -1,5 +1,4 @@
-Variance and SD
-title: "Standard Deviation"
+title: "Variance Standard Deviation"
 output: html_notebook
 ---
 ```{r message=FALSE, warning=FALSE}
