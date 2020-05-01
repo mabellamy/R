@@ -26,3 +26,20 @@ viz2 <- ggplot(data = stateSumDeathsData, aes(x=date, y=stateDeaths)) +
         
 
 viz2
+
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+library(readr)
+library(dplyr)
+library(tidyr)
+library(ggplot2)
+
+covidFiles <- list.files("https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_daily_reports/*-*-2020.csv")
+
+df_list <- lapply(covidFiles, read_csv)
+
+covidData <- bind_rows(df_list)
+
+head(covidData)
