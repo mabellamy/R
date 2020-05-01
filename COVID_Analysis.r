@@ -7,7 +7,7 @@ usaData <- read_csv("https://raw.githubusercontent.com/nytimes/covid-19-data/mas
 usData <- usaData %>% group_by(date, county, state)
 print(usData)
 
-stateSumCasesData <- usData %>% group_by(date, state) %>% summarize(stateCases=sum(cases))
+stateSumCasesData <- usData %>% group_by(date, state) %>% summarize(stateCases = sum(cases))
 print(stateSumCasesData)
 
 stateSumDeathsData <- usData %>% group_by(date, state) %>% summarize(stateDeaths = sum(deaths))
