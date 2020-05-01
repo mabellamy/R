@@ -1,9 +1,0 @@
-library(readr)
-library(dplyr)
-library(ggplot2)
-
-usaData <- read_csv("https://raw.githubusercontent.com/nytimes/covid-19-data/master/us-counties.csv")
-head(usaData)
-
-viz <- ggplot(data = usaData, aes(x=date, y=cases))
-viz
