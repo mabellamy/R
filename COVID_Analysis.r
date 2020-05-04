@@ -53,7 +53,7 @@ head(casesData)
 deathsData <- read_csv("https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_deaths_US.csv")
 head(deathsData)
 
-deathsData <- deathsData %>% select(-UID,-iso2,-iso3,-code3,-FIPS,-Admin2,-Lat,-Long_,-Combined_Key)
+deathsData <- deathsData %>% select(-UID,-iso2,-iso3,-code3,-FIPS,-Admin2,-Lat,-Long_,-Combined_Key,-Population)
 head(deathsData)
 
 deathsData <- deathsData %>% gather('1/22/20','1/23/20','1/24/20','1/25/20','1/26/20','1/27/20','1/28/20','1/29/20','1/30/20','1/31/20',
