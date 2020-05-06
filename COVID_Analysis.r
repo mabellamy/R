@@ -31,3 +31,6 @@ deathsData <- deathsData %>% gather('1/22/20','1/23/20','1/24/20','1/25/20','1/2
 head(deathsData)
 
 cases_vs_deaths_Data <- casesData %>% right_join(deathsData)
+head(cases_vs_deaths_Data)
+
+CalCovid <- cases_vs_deaths_data %>% group_by(Date) %>% filter(Province_state = "California")
