@@ -35,8 +35,8 @@ head(CalCovid)
 CalCovid <- CalCovid %>% group_by(Date) %>% summarize(Confirmed = sum(Confirmed), Deaths = sum(Deaths))
 head(CalCovid)
 
-CalConfirmViz <- ggplot(data = CalCovid, aes(x=Date, y=Confirmed)) + geom_point(aes(color = "orange") + geom_smooth()
+CalConfirmViz <- ggplot(data = CalCovid, aes(x=Date, y=Confirmed)) + geom_bar() + geom_point(aes(color = "orange") + geom_smooth()
 CalConfirmViz
 
-CalDeathsViz <- ggplot(data = CalCovid, aes(x=Date, y=Deaths)) + geom_point(aes(color = "red") + geom_smooth()
+CalDeathsViz <- ggplot(data = CalCovid, aes(x=Date, y=Deaths)) + geom_bar() + geom_point(aes(color = "red") + geom_smooth()
 CalDeathsViz
