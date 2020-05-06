@@ -29,7 +29,7 @@ head(deathsData)
 cases_vs_deaths_Data <- casesData %>% right_join(deathsData)
 head(cases_vs_deaths_Data)
 
-CalCovid <- cases_vs_deaths_Data %>% group_by(Date) %>% filter(Province_state == "California")
+CalCovid <- cases_vs_deaths_Data %>% group_by(Date) %>% filter(Province_State == "California")
 head(CalCovid)
 
 CalCovid <- CalCovid %>% group_by(Date) %>% summarize(Confirmed = sum(Confirmed), Deaths = sum(Deaths))
